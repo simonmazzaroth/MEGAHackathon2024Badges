@@ -1,0 +1,31 @@
+version: 0.0.1
+achievements:
+  - achievement:
+      name: GitHub Prize
+      icon: https://raw.githubusercontent.com/mchang2468/MEGAHackathon2024Badges/main/GitHub_Prize.png
+      description: This prize is for submitting GitHub code as part of your project submission.
+      triggers:
+        - trigger:
+            actor: author
+            action: star
+            condition: starred = true
+  - achievement:
+      name: Gold_Prize.png	 
+      icon: https://raw.githubusercontent.com/mchang2468/MEGAHackathon2024Badges/main/Gold_Prize.png
+      Description: This prize is for the most impressive, innovative, and impactful project.
+      triggers:
+        - trigger:
+            actor: author
+            action: star
+            condition: starred = true
+            operator: "&"
+        - trigger:
+            actor: author
+            action: issue
+            condition: labels in ['enhancement']
+            operator: "|"
+        - trigger: 
+            actor: reviewers
+            action: pull_request
+            condition: count() > 1
+            operator: '|'
